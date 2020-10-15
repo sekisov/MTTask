@@ -1,0 +1,67 @@
+﻿<Window x:Class="MTTask.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MTTask"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" >
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Ribbon x:Name="RibbonWin"  SelectedIndex="0" SelectionChanged="RibbonWin_SelectionChanged" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" >
+            <Ribbon.ApplicationMenu >
+                <RibbonApplicationMenu Label="Файл"  KeyTip="F">
+                    <RibbonApplicationMenuItem Header="Exit"/>
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+            <RibbonTab Header="Основное" KeyTip="H" >                
+               
+                <RibbonGroup x:Name="Main" Header="System">
+                    <RibbonButton  Label="Переход в проводник" KeyTip="V"/>
+                    <RibbonButton Label="Поиск по №" KeyTip="S" />
+                </RibbonGroup>
+                
+                <RibbonGroup x:Name="Create" Header="Заказ">
+                    <RibbonButton  Label="Создать" KeyTip="C" />
+                </RibbonGroup>
+                
+                <RibbonGroup x:Name="Rate" Header="Тариф">
+                    <RibbonComboBox Label="Тариф" 
+                                    VerticalAlignment="Center" 
+                                    IsEditable="True" >   
+                        <RibbonGallery SelectedValue="Зеленый"
+                                       SelectedValuePath="Content">
+                            <RibbonGalleryCategory>
+                                <RibbonGalleryItem Content="Зеленый" Foreground="Green" />
+                                <RibbonGalleryItem Content="Синий" Foreground="Blue" />
+                                <RibbonGalleryItem Content="Красный" Foreground="Red" />
+                            </RibbonGalleryCategory>
+                        </RibbonGallery>
+                    </RibbonComboBox>
+                    
+                    <RibbonComboBox Label="Фонд" 
+                                    VerticalAlignment="Center" 
+                                    IsEditable="True" >   
+                        <RibbonGallery SelectedValue="Все доступные"
+                                       SelectedValuePath="Content">
+                            <RibbonGalleryCategory>
+                                <RibbonGalleryItem Content="Все доступные" />
+                                <RibbonGalleryItem Content="Кино"  />
+                                <RibbonGalleryItem Content="Красного креста"  />
+                            </RibbonGalleryCategory>
+                        </RibbonGallery>
+                    </RibbonComboBox>
+
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+    </Grid>
+</Window>
